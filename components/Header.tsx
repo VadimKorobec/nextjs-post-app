@@ -9,13 +9,13 @@ const Header = () => {
   return (
     <header className="bg-slate-400  ">
       <div className="flex items-center mx-auto max-w-7xl pt-4 pb-4">
-        <p>
+        <p className="mr-40">
           <Link href="/" className={pathname === "/" ? "text-amber-50" : ""}>
             Home Page
           </Link>
         </p>
         <nav>
-          <ul className="flex items-center">
+          <ul className="flex items-center gap-16">
             <li>
               <Link
                 href="/posts"

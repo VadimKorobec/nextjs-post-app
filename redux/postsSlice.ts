@@ -28,6 +28,7 @@ const postsSlice = createSlice({
       })
       .addCase(fetchPosts.fulfilled, (state, action: PayloadAction<Post[]>) => {
         state.isLoading = false;
+        state.error = null
         state.posts = action.payload;
       })
       .addCase(fetchPosts.rejected, (state, action) => {
