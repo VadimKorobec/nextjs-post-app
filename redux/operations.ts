@@ -14,3 +14,15 @@ export const fetchPosts = createAsyncThunk(
     }
   }
 );
+
+export const addPost = createAsyncThunk(
+  "posts/addPost",
+  async (post, thunkAPI) => {
+    try {
+      const response = await axios.post("/posts", post);
+      return response.data.posts;
+    } catch (error) {
+      return thunkAPI.rejectWithValue((error as Error).message);
+    }
+  }
+);

@@ -1,5 +1,7 @@
+import PostForm from "@/components/PostForm";
+
 const CreatePost = () => {
-  return <h2 className="text-center mt-4">Create Post Page</h2>;
+  return <PostForm/>;
 };
 
 export default CreatePost
