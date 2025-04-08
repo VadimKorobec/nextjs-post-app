@@ -1,6 +1,8 @@
 "use client";
 
+import { addPost } from "@/redux/operations";
 import { AppDispatch } from "@/redux/store";
+import { NewPostData } from "@/types/newPostData";
 import { Post } from "@/types/post";
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
@@ -16,24 +18,27 @@ const PostForm = () => {
     e.preventDefault();
 
     const title = titleRef.current?.value;
-    const image = imageRef.current?.files?.[0];
     const content = contentRef.current?.value;
 
-    const newPost = {
-      title,
-      image,
-      content,
-      };
+    if (!title || !content) {
+      return;
+    }
 
-      console.log(newPost)
-      
-      
+    const newPost: NewPostData = {
+      title,
+      content,
+    };
+
+    console.log(newPost);
+
+    dispatch(addPost(newPost));
+
+    handleResetForm();
   };
 
   const handleResetForm = () => {
-    if (titleRef.current && imageRef.current && contentRef.current) {
+    if (titleRef.current && contentRef.current) {
       titleRef.current.value = "";
-      imageRef.current.value = "";
       contentRef.current.value = "";
     }
   };
@@ -45,8 +50,7 @@ const PostForm = () => {
     >
       <label>Title</label>
       <input ref={titleRef} type="text" className="border p-1 rounded mb-2" />
-      <label>Image</label>
-      <input ref={imageRef} type="file" className="border p-1 rounded mb-2" />
+
       <label>Content</label>
       <textarea
         ref={contentRef}
