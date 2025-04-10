@@ -3,14 +3,14 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { Post } from "@/types/post";
 import { NewPostData } from "@/types/newPostData";
 
-axios.defaults.baseURL = "http://localhost:8080/api/";
+axios.defaults.baseURL = "https://node-rest-api-tc4y.onrender.com/api";
 
 export const fetchPosts = createAsyncThunk(
   "posts/fetchAll",
   async (_, thunkAPI) => {
     try {
       const response = await axios.get("/posts");
-      return response.data.posts;
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue((error as Error).message);
     }
