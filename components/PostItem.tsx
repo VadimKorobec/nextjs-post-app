@@ -18,7 +18,7 @@ const PostItem = ({ post }: PostItemProps) => {
   };
 
   return (
-    <li className="w-2xl mx-auto rounded-lg border-2 border-slate-500 p-2">
+    <li className="w-2xl mx-auto rounded-lg border-2 border-slate-500 p-2 mb-3">
       {/* <p className="text-base font-medium mb-2">
         Posted by {post.creator.name} on {post.createdAt.slice(0, 10)}
       </p> */}

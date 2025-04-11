@@ -22,7 +22,7 @@ export const addPost = createAsyncThunk<Post, NewPostData>(
   async (post: NewPostData, thunkAPI) => {
     try {
       const response = await axios.post("/posts", post);
-      return response.data.post;
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue((error as Error).message);
     }

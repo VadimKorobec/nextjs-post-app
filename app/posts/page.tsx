@@ -3,7 +3,6 @@
 import PostItem from "@/components/PostItem";
 import { fetchPosts } from "@/redux/operations";
 import { AppDispatch, RootState } from "@/redux/store";
-import Image from "next/image";
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";

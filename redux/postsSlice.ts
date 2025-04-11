@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 import { addPost, fetchPosts } from "./operations";
-import { NewPostData } from "@/types/newPostData";
 
 interface PostState {
   posts: Post[];

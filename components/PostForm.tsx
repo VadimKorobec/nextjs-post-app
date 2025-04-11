@@ -3,16 +3,17 @@
 import { addPost } from "@/redux/operations";
 import { AppDispatch } from "@/redux/store";
 import { NewPostData } from "@/types/newPostData";
-import { Post } from "@/types/post";
+import { useRouter } from "next/navigation";
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
 
 const PostForm = () => {
   const titleRef = useRef<HTMLInputElement>(null);
-  const imageRef = useRef<HTMLInputElement>(null);
   const contentRef = useRef<HTMLTextAreaElement>(null);
 
   const dispatch = useDispatch<AppDispatch>();
+
+  const router = useRouter() 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,11 +30,10 @@ const PostForm = () => {
       content,
     };
 
-    console.log(newPost);
-
     dispatch(addPost(newPost));
 
     handleResetForm();
+    router.push('/posts')
   };
 
   const handleResetForm = () => {
