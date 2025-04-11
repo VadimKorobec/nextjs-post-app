@@ -10,6 +10,7 @@ export const fetchPosts = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get("/posts");
+      console.log(response.data)
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue((error as Error).message);
